@@ -39,16 +39,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toodeNimetusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kogusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hindDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tootetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toodedDataSet = new ToodeBD.ToodedDataSet();
-            this.tootetableTableAdapter = new ToodeBD.ToodedDataSetTableAdapters.TootetableTableAdapter();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tootetableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Toodetxt
@@ -57,6 +51,7 @@
             this.Toodetxt.Name = "Toodetxt";
             this.Toodetxt.Size = new System.Drawing.Size(100, 20);
             this.Toodetxt.TabIndex = 0;
+            this.Toodetxt.TextChanged += new System.EventHandler(this.Toodetxt_TextChanged);
             // 
             // Hindtxt
             // 
@@ -64,6 +59,7 @@
             this.Hindtxt.Name = "Hindtxt";
             this.Hindtxt.Size = new System.Drawing.Size(100, 20);
             this.Hindtxt.TabIndex = 1;
+            this.Hindtxt.TextChanged += new System.EventHandler(this.Hindtxt_TextChanged);
             // 
             // Kogustxt
             // 
@@ -71,6 +67,7 @@
             this.Kogustxt.Name = "Kogustxt";
             this.Kogustxt.Size = new System.Drawing.Size(100, 20);
             this.Kogustxt.TabIndex = 2;
+            this.Kogustxt.TextChanged += new System.EventHandler(this.Kogustxt_TextChanged);
             // 
             // label1
             // 
@@ -80,6 +77,7 @@
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Toode";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -89,6 +87,7 @@
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Kogus";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -98,6 +97,7 @@
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Hind";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
@@ -117,6 +117,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Kustuta";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -130,14 +131,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.toodeNimetusDataGridViewTextBoxColumn,
-            this.kogusDataGridViewTextBoxColumn,
-            this.hindDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tootetableBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(312, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(450, 233);
@@ -145,50 +139,25 @@
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // toodeNimetusDataGridViewTextBoxColumn
-            // 
-            this.toodeNimetusDataGridViewTextBoxColumn.DataPropertyName = "ToodeNimetus";
-            this.toodeNimetusDataGridViewTextBoxColumn.HeaderText = "ToodeNimetus";
-            this.toodeNimetusDataGridViewTextBoxColumn.Name = "toodeNimetusDataGridViewTextBoxColumn";
-            // 
-            // kogusDataGridViewTextBoxColumn
-            // 
-            this.kogusDataGridViewTextBoxColumn.DataPropertyName = "Kogus";
-            this.kogusDataGridViewTextBoxColumn.HeaderText = "Kogus";
-            this.kogusDataGridViewTextBoxColumn.Name = "kogusDataGridViewTextBoxColumn";
-            // 
-            // hindDataGridViewTextBoxColumn
-            // 
-            this.hindDataGridViewTextBoxColumn.DataPropertyName = "Hind";
-            this.hindDataGridViewTextBoxColumn.HeaderText = "Hind";
-            this.hindDataGridViewTextBoxColumn.Name = "hindDataGridViewTextBoxColumn";
-            // 
             // tootetableBindingSource
             // 
             this.tootetableBindingSource.DataMember = "Tootetable";
-            this.tootetableBindingSource.DataSource = this.toodedDataSet;
             // 
-            // toodedDataSet
+            // button4
             // 
-            this.toodedDataSet.DataSetName = "ToodedDataSet";
-            this.toodedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tootetableTableAdapter
-            // 
-            this.tootetableTableAdapter.ClearBeforeFill = true;
+            this.button4.Location = new System.Drawing.Point(158, 268);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Lisa pilt";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -204,7 +173,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tootetableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +197,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn toodeNimetusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kogusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hindDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button4;
     }
 }
 
