@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -149,6 +150,13 @@ namespace ToodeBD
         private void Toodetxt_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg;)";
+            open.InitialDirectory = Path.GetFullPath(@"C:\Users\opilane\source\repos\ToodeBD");
         }
     }
 }
